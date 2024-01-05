@@ -11,7 +11,10 @@ def handle_add_two_ints(req):
     return AddTwoIntsResponse(req.a + req.b)
 
 def add_two_ints_server():
+    #               (server_name)
     rospy.init_node('add_two_ints_server')
+
+    #                 (service_name, service_type, call_back_func)
     s = rospy.Service('add_two_ints', AddTwoInts, handle_add_two_ints)
     print ("Ready to add two ints.")
     rospy.spin()
