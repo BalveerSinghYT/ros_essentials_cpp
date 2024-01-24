@@ -33,7 +33,7 @@ cv2.moveWindow("Green Channel",0,height)
 # Saturation: an indication of how saturated an individual color is 
 # Value: indicates how luminous the channel is. 
 
-print ('---- slipt the image into Hue, Saturation, Value channels.----- ')
+print ('---- split the image into Hue, Saturation, Value channels.----- ')
 hsv = cv2.cvtColor(color_image, cv2.COLOR_BGR2HSV)
 h,s,v = cv2.split(hsv)
 hsv_image = np.concatenate((h,s,v),axis=1)
