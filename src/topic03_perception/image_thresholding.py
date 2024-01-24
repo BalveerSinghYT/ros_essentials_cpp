@@ -17,8 +17,8 @@ def read_image(image_name, as_gray):
 def basic_thresholding(gray_image, threshol_value):
     ret, thresh_basic = cv2.threshold(gray_image,
                                     threshol_value,
-                                    255,
-                                    cv2.THRESH_BINARY_INV)
+                                    255,            # max pixel value
+                                    cv2.THRESH_BINARY_INV) # if pixel value < threshold? set to 0 else set to 255
     cv2.imshow("Basic Binary Image",thresh_basic)
 
 def adaptive_thresholding(gray_image, threshol_value):
@@ -32,13 +32,13 @@ def adaptive_thresholding(gray_image, threshol_value):
 
 
 def main():
-    #image_name = "images/shapes.png"
+    image_name = "images/shapes.png"
     image_name = "images/tomato.jpg"
     as_gray = True
-    threshol_value=115
+    threshol_value=129
     gray_image = read_image(image_name,as_gray)
-    basic_thresholding(gray_image, threshol_value)
-    #adaptive_thresholding(gray_image, threshol_value)
+    # basic_thresholding(gray_image, threshol_value)
+    adaptive_thresholding(gray_image, threshol_value)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 

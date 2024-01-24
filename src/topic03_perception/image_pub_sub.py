@@ -10,7 +10,7 @@ import sys
 bridge = CvBridge()
 
 def image_callback(ros_image):
-  print 'got an image'
+  print('got an image')
   global bridge
   #convert ros_image into an opencv-compatible image
   try:
@@ -28,12 +28,12 @@ def image_callback(ros_image):
 
   
 def main(args):
-  rospy.init_node('image_converter', anonymous=True)
-  #for turtlebot3 waffle
-  #image_topic="/camera/rgb/image_raw/compressed"
-  #for usb cam
-  #image_topic="/usb_cam/image_raw"
+  # create image_converter node
+  rospy.init_node('image_converter', anonymous=False)
+
+  #create a subscriber of Image data-type, subscribing to /usb_cam/image_raw topic
   image_sub = rospy.Subscriber("/usb_cam/image_raw",Image, image_callback)
+  
   try:
     rospy.spin()
   except KeyboardInterrupt:
